@@ -178,23 +178,28 @@ plt.show()
 
 # Q4(c) Experiment with different k values and see how it affects the loss values and the
 #  predicted function
-k_values = [1,5,7,9,13,15,20]
-plt.figure(figsize=(15,10))
+k_values = [1, 5, 7, 9, 13, 15, 20]
+plt.figure(figsize=(15, 10))  # 更大的画布
+
 for i, k in enumerate(k_values):
     model = KNeighborsRegressor(n_neighbors=k)
     model.fit(x_regr_train, y_regr_train.values.ravel())
+
     # predict after sort
     x_sorted = x_regr_test.sort_values(by='x')
     y_true = y_regr_test.loc[x_sorted.index]
     y_pred = model.predict(x_sorted)
-    # SSE
-    sse = np.sum((y_true.values.ravel() - y_pred) ** 2)
+
+    # plot each subplot
     plt.subplot(3, 3, i + 1)
     plt.plot(x_sorted, y_true, color='blue', label='True y (Test Data)')
     plt.plot(x_sorted, y_pred, color='red', label='Predicted y (kNN Regression)')
-    plt.title('k-NN Regression: True vs Predicted on Test Set')
+    plt.title(f'k = {k}')
     plt.xlabel('x')
     plt.ylabel('y')
     plt.legend()
     plt.grid(True)
-    plt.show()
+
+plt.tight_layout()
+plt.suptitle('k-NN Regression with Different k values', fontsize=16, y=1.02)
+plt.show()
