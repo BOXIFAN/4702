@@ -85,12 +85,13 @@ test_accuracy = accuracy_score(y_classif_test, y_test_pre)
 train_error = 1 - train_accuracy
 test_error = 1 - test_accuracy
 
-print("Training rate: ", train_error) # 4.3%
-print("Test rate: ", test_error) #0.83% those data has very low error rate, it means k=3 are good clasifer
+print("Training error rate: ", train_error) # 4.3%
+print("Test error rate: ", test_error) #0.83% those data has very low error rate, it means k=3 are good clasifer
+print("")
 
 #Q3 (b)Plot the decision regions for your classifier together with the training and/or test
 #data points.
-def plot_decision_boundary(model, x, y, title = "Decision Boundary"):
+def plot_decision_boundary(model, x, y, title = "Decision Boundary " ):
     h = 0.05
     # get the boundary coordinate range
     x_min, x_max = x['x'].min() - 1, x['x'].max() + 1
