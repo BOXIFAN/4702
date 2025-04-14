@@ -16,6 +16,7 @@ print(df_classif.head())
 print("Regression dataset head: ")
 print(df_regr.head())
 print(df_classif.columns)
+print()
 
 # Q1.  Make scatterplots of each dataset so you can see what they look like.
 # Make classfication dataset visible
@@ -66,6 +67,7 @@ print("Classification training set size: ", len(x_classif_train))
 print("Classification test set size: ", len(x_classif_test))
 print("Regression training set size: ", len(x_regr_train))
 print("Regression test set size: ", len(x_regr_test))
+print("")
 
 # Q3(a)Build a k-NN classifier with k = 3 for dataset w3classif.csv and find the training
 #  and test loss (i.e. misclassification rate).
