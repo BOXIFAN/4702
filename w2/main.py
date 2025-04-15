@@ -56,7 +56,7 @@ y_classif = df_classif['label']
 # use train_test_split get the training set and test set
 #for classification
 x_classif_train, x_classif_test, y_classif_train, y_classif_test = train_test_split(
-    x_classif, y_classif, test_size=0.3, random_state=42, shuffle=True)
+    x_classif, y_classif, test_size=0.3, random_state=42, shuffle=True) # random value to prevent sequence error
 # for regression
 x_regr = df_regr[['x']]
 y_regr = df_regr[['y']]
@@ -182,7 +182,7 @@ plt.show()
 # Q4(c) Experiment with different k values and see how it affects the loss values and the
 #  predicted function
 k_values = [1, 5, 7, 9, 13, 15, 20]
-plt.figure(figsize=(15, 10))  # 更大的画布
+plt.figure(figsize=(15, 10))
 
 for i, k in enumerate(k_values):
     model = KNeighborsRegressor(n_neighbors=k)
